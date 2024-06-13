@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="w3-card-4 w3-margin">
+
+    <header class="w3-container w3-blue">
+      <h1>Fill the Details</h1>
+    </header>
+
+    
+
+
+    <form class="w3-container w3-margin" action="" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+      {% if error %}
+        <div class="w3-text-red">{{ error }}</div>
+      {% endif %}>
+      <label class="w3-text-teal"><b>Enter Your First Name</b></label>
+      <input class="w3-input w3-border w3-light-grey" type="text" name="name" value="{{ request.form.name }}">
+      <br>
+
+      <label class="w3-text-teal"><b>Enter Your Email ID</b></label>
+      <input class="w3-input w3-border w3-light-grey" type="text" name="email" value="{{ request.form.email }}" oninput="validateEmail()">
+      <span id="email-error" class="w3-text-red"></span>
+      <br>
+
+      <label class="w3-text-teal"><b>Enter your Contact No</b></label>
+      <input class="w3-input w3-border w3-light-grey" type="text" name="num" value="{{ request.form.num }}" oninput="validateContact()">
+      <span id="contact-error" class="w3-text-red"></span>
+      <br>
+
+      <label class="w3-text-teal"><b>Age</b></label>
+      <input class="w3-input w3-border w3-light-grey" type="text" name="age" value="{{ request.form.age }}" oninput="validateAge()">
+      <span id="age-error" class="w3-text-red"></span>
+      <br>
+
+      <label class="w3-text-teal"><b>Gender</b></label>
+      <select class="w3-input w3-border w3-light-grey" name="gender" value="{{ request.form.gender }}">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+      </select>
+      <br>
+  
+      <label class="w3-text-teal"><b>Password</b></label>
+      <input class="w3-input w3-border w3-light-grey" type="password" name="password" value="{{ request.form.password }}" oninput="validatePassword()">
+      <span id="password-error" class="w3-text-red"></span>
+      <br>
+
+      <input class="w3-btn w3-blue-grey" name="sub" type="submit" value="Submit"/>
+      <br><br>
+   
+    </form>
+
+    <br>
+    <footer class="w3-container w3-blue">
+      <h5></h5>
+    </footer>
+    
+    </div>
+
+<script src="../static/js/input.js"></script>  
+
+  
+
+{% endblock %}
